@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="src_samples"/>
+	<classpathentry kind="src" path="src_unitTests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xmlsec1.4.8-libs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
