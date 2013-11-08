@@ -1,5 +1,7 @@
 package com.nci.test.impl;
 
+import it.sauronsoftware.base64.Base64;
+
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -9,18 +11,24 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 
 import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
 import javax.crypto.CipherSpi;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
+import javax.crypto.spec.SecretKeySpec;
 
 public class TestCipher extends CipherSpi{
 
+	private int m_mode;
+	private Key m_key;
+	private byte[] m_context;
+	
 	@Override
 	protected byte[] engineDoFinal(byte[] arg0, int arg1, int arg2)
 			throws IllegalBlockSizeException, BadPaddingException {
 		// TODO Auto-generated method stub
-		return null;
+		return implDoFinal(arg0);
 	}
 
 	@Override
@@ -32,6 +40,7 @@ public class TestCipher extends CipherSpi{
 	}
 
 	@Override
+	//美国以外的国家应当实现此方法
 	protected int engineGetBlockSize() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -39,8 +48,9 @@ public class TestCipher extends CipherSpi{
 
 	@Override
 	protected byte[] engineGetIV() {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Auto-generated method stub		
+		byte[] IV = {};
+		return IV;
 	}
 
 	@Override
@@ -59,7 +69,7 @@ public class TestCipher extends CipherSpi{
 	protected void engineInit(int arg0, Key arg1, SecureRandom arg2)
 			throws InvalidKeyException {
 		// TODO Auto-generated method stub
-		
+		implInit(arg0, arg1);
 	}
 
 	@Override
@@ -67,7 +77,7 @@ public class TestCipher extends CipherSpi{
 			SecureRandom arg3) throws InvalidKeyException,
 			InvalidAlgorithmParameterException {
 		// TODO Auto-generated method stub
-		
+		implInit(arg0, arg1);
 	}
 
 	@Override
@@ -75,7 +85,7 @@ public class TestCipher extends CipherSpi{
 			SecureRandom arg3) throws InvalidKeyException,
 			InvalidAlgorithmParameterException {
 		// TODO Auto-generated method stub
-		
+		implInit(arg0, arg1);
 	}
 
 	@Override
@@ -102,4 +112,26 @@ public class TestCipher extends CipherSpi{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	private void implInit(int mode, Key key)
+	{
+		this.m_mode = mode;  
+        if (key instanceof SecretKeySpec) {  
+            this.m_key = key;
+        } else {  
+            throw new RuntimeException("key invalid!");  
+        } 
+	}
+	
+	private byte[] implDoFinal(byte[] arg0) {  
+        SecretKeySpec simpleKey = (SecretKeySpec) m_key;  
+        if (m_mode == Cipher.ENCRYPT_MODE) {  
+        	m_context = Base64.encode(arg0);
+        } else if (m_mode == Cipher.DECRYPT_MODE) {  
+        	m_context = Base64.decode(arg0);
+        } else {  
+            throw new RuntimeException("mode must be encrypt or decrypt!");  
+        }  
+        return m_context;  
+    }  
 }
