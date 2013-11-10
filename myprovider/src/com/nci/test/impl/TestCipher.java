@@ -40,19 +40,23 @@ public class TestCipher extends CipherSpi{
 	}
 
 	@Override
-	//美国以外的国家应当实现此方法
-	protected int engineGetBlockSize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	protected byte[] engineGetIV() {
 		// TODO Auto-generated method stub		
 		byte[] IV = {};
 		return IV;
 	}
 
+	@Override
+	protected int engineGetBlockSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}  
+	
+	protected int engineGetKeySize(Key key)
+	{
+		return key.getEncoded().length;
+	}
+	
 	@Override
 	protected int engineGetOutputSize(int arg0) {
 		// TODO Auto-generated method stub
@@ -133,5 +137,5 @@ public class TestCipher extends CipherSpi{
             throw new RuntimeException("mode must be encrypt or decrypt!");  
         }  
         return m_context;  
-    }  
+    }
 }

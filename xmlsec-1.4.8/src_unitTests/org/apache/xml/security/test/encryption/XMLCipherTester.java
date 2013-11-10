@@ -81,6 +81,7 @@ public class XMLCipherTester extends TestCase {
 
     protected void setUp() {
         basedir = System.getProperty("basedir",".");
+        
 //        documentName = System.getProperty("org.apache.xml.enc.test.doc",
 //            basedir + "/build.xml");
 //        elementName = System.getProperty("org.apache.xml.enc.test.elem",
@@ -790,6 +791,8 @@ public class XMLCipherTester extends TestCase {
 	        cipher.init(XMLCipher.ENCRYPT_MODE, key);
 	        ed = cipher.doFinal(d, e);
 	
+	        target = toString(ed);
+	        
 	        //decrypt
 	        cipher = XMLCipher.getInstance(XMLCipher.MY_TESTCIPHER);
 	        cipher.init(XMLCipher.DECRYPT_MODE, key);

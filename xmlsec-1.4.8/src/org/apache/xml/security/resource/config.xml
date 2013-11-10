@@ -313,13 +313,13 @@
                     JCEName="AESWrap"/>
          
          //HUJQ           
-         <Algorithm URI="http://www.w3.org/2001/04/xmlenc#MyCipher"
-                    Description="Self Define using MyCipher"
-                    AlgorithmClass="BlockEncryptionByMyCipher"
+         <Algorithm URI="http://www.w3.org/2001/04/xmlenc#TestCipher"
+                    Description="Test Cipher using Base64"
+                    AlgorithmClass="BlockEncryption_Test"
                     RequirementLevel="REQUIRED"
                     KeyLength="128"
-                    RequiredKey="RequiredKey_MyCipher"
-                    JCEName="MyCipher"/>
+                    RequiredKey="RequiredKey_TestKey"
+                    JCEName="TestCipher"/>
 
       </Algorithms>
    </JCEAlgorithmMappings>
