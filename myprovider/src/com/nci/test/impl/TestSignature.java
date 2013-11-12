@@ -9,18 +9,21 @@ import java.security.SignatureSpi;
 
 public class TestSignature extends SignatureSpi{
 
+	PublicKey m_publicKey;
+	PrivateKey m_privateKey;
+	
 	@Override
 	protected void engineInitVerify(PublicKey publicKey)
 			throws InvalidKeyException {
 		// TODO Auto-generated method stub
-		
+		m_publicKey = publicKey;
 	}
 
 	@Override
 	protected void engineInitSign(PrivateKey privateKey)
 			throws InvalidKeyException {
 		// TODO Auto-generated method stub
-		
+		m_privateKey = privateKey;
 	}
 
 	@Override

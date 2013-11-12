@@ -789,8 +789,9 @@ public class XMLCipherTester extends TestCase {
 	        // encrypt
 	        cipher = XMLCipher.getInstance(XMLCipher.MY_TESTCIPHER);
 	        cipher.init(XMLCipher.ENCRYPT_MODE, key);
-	        ed = cipher.doFinal(d, e);
-	
+	        //ed = cipher.doFinal(d, e);
+	        ed = cipher.doFinal(d, e, true);
+	        
 	        target = toString(ed);
 	        
 	        //decrypt
