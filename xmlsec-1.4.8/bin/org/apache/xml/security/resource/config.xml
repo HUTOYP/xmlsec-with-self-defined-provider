@@ -66,6 +66,10 @@
       <SignatureAlgorithm URI="http://www.w3.org/2000/09/xmldsig#hmac-sha1"
                           JAVACLASS="org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1" />
 
+	  <!-- HUJQ xmlsec需要首先定义一个xmlsec内部使用的签名算法实现 -->
+	  <SignatureAlgorithm URI="http://www.w3.org/2000/09/xmldsig#sign-test"
+	  					  JAVACLASS="org.apache.xml.security.algorithms.implementations.SignatureTest" />
+s
       <SignatureAlgorithm URI="http://www.w3.org/2001/04/xmldsig-more#rsa-md5"
                           JAVACLASS="org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5" />
       <SignatureAlgorithm URI="http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160"
@@ -185,6 +189,13 @@
                     RequirementLevel="OPTIONAL"
                     SpecificationURL="http://www.ietf.org/internet-drafts/draft-eastlake-xmldsig-uri-02.txt"
                     JCEName="ECDSAwithSHA1"/>
+
+		 <!-- HUJQ -->
+		 <Algorithm URI="http://www.w3.org/2000/09/xmldsig#sign-test"
+		 			Description="My Test Signature in My Provider"
+		 			AlgorithmClass="Signature"
+		 			RequirementLevel="REQUIRED"
+		 			JCEName="TestSignature"/>
 
          <!-- MAC Algorithms -->
          <Algorithm URI="http://www.w3.org/2001/04/xmldsig-more#hmac-md5"
@@ -312,7 +323,7 @@
                     RequiredKey="AES"
                     JCEName="AESWrap"/>
          
-         //HUJQ           
+         <!-- HUJQ -->           
          <Algorithm URI="http://www.w3.org/2001/04/xmlenc#TestCipher"
                     Description="Test Cipher using Base64"
                     AlgorithmClass="BlockEncryption_Test"

@@ -79,6 +79,8 @@ public final class XMLSignature extends SignatureElementProxy {
 
     /** Signature - Required DSAwithSHA1 (DSS) */
     public static final String ALGO_ID_SIGNATURE_DSA = Constants.SignatureSpecNS + "dsa-sha1";
+    
+    public static final String ALGO_ID_SIGNATURE_TEST = Constants.SignatureSpecNS + "sign-test";
 
     /** Signature - Recommended RSAwithSHA1 */
     public static final String ALGO_ID_SIGNATURE_RSA = Constants.SignatureSpecNS + "rsa-sha1";

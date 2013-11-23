@@ -16,6 +16,7 @@
  */
 package org.apache.xml.security.test.signature;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.FileInputStream;
 import java.security.KeyStore;
@@ -25,6 +26,11 @@ import java.util.Enumeration;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.apache.xml.security.Init;
 import org.apache.xml.security.signature.XMLSignature;
@@ -129,7 +135,43 @@ public class SignatureTest extends TestCase {
 
 	return sig;
     }
+    
+    public XMLSignature signMyDocument(Document doc) throws Throwable {
+		XMLSignature sig = new XMLSignature(doc, "",
+			XMLSignature.ALGO_ID_SIGNATURE_TEST);
+		Element root = doc.getDocumentElement();
+		root.appendChild(sig.getElement());
 
+		sig.getSignedInfo().addResourceResolver(new ResolverXPointer());
+
+		Transforms transforms = new Transforms(doc);
+		transforms.addTransform(Transforms.TRANSFORM_ENVELOPED_SIGNATURE);
+		transforms.addTransform(Transforms.TRANSFORM_C14N_WITH_COMMENTS);
+		sig.addDocument("", transforms, Constants.ALGO_ID_DIGEST_SHA1);
+
+		sig.addKeyInfo((PublicKey)null);
+		sig.sign(null);
+
+		displayDocument(doc);
+
+		return sig;
+	}
+    
+    public void displayDocument(Document doc) throws TransformerException
+    {
+    	TransformerFactory tf = TransformerFactory.newInstance();    
+        Transformer t = tf.newTransformer();    
+        
+        t.setOutputProperty("encoding", "utf-8");    
+        
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();    
+        t.transform(new DOMSource(doc), new StreamResult(bos));    
+        
+        String str = bos.toString();
+        
+        System.out.println(str);
+    }
+    
     public void setUp() throws Exception {
 	Init.init();
 	Constants.setSignatureSpecNSprefix("ds");
@@ -140,7 +182,9 @@ public class SignatureTest extends TestCase {
     }
 
     public void testSigning() throws Throwable {
-	signDocument(getOriginalDocument());
+    	//signDocument(getOriginalDocument());
+    	
+    	signMyDocument(getOriginalDocument());
     }
 
     public void testSigningVerifyingFromRebuildSignature() throws Throwable {
