@@ -1,0 +1,9 @@
+加密：
+./XmlSecurity -type 1 -subtype 2 -mode 1 -path ./PlainFile.xml -target person -time
+解密：
+./XmlSecurity -type 2 -path ./XmlSecurityOutput.xml -time
+签名：
+./XmlSecurity -type 3 -mode 1 -path ./PlainFile.xml -target person -time
+验证：
+./XmlSecurity -type 4 -path ./XmlSecurityOutput.xml -time
+
