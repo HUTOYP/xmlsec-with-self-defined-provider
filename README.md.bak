@@ -15,5 +15,4 @@ Java Cryptography Architecture Standard Algorithm Name Documentation：
 http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html
 
 目录说明：
-jce: 屏蔽SUN公司对CSP签名验证的强制检查（jce工程来自于openJdk1.6）
-myprovider: 用于测试的密码服务提供者实现
+jce: 屏蔽SUN公司对CSP签名验证的强制检查（jce工程来自于openJdk1.6）。

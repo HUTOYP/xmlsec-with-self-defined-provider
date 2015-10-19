@@ -54,7 +54,6 @@ security.provider.8=org.jcp.xml.dsig.internal.dom.XMLDSigRI
 security.provider.9=sun.security.smartcardio.SunPCSC
 security.provider.10=sun.security.mscapi.SunMSCAPI
 security.provider.11=com.nci.provider.TestProvider
-security.provider.12=com.nci.provider.NciProvider
 
 
 #
