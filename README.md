@@ -3,17 +3,17 @@ xmlsec-with-self-defined-provider
 
 xmlsec with self-defined provider (using java, based on xmlsec-opensource)
 
-1¡¢Supports SOAP message encryption function. Ìá¹©SOAPÏûÏ¢¼ÓÃÜ¹¦ÄÜ£¨»ùÓÚWS-Security£©
-2¡¢Supports a variety of ways XMLSEC encryption. Ìá¹©¶àÖÖ·½Ê½µÄXMLSEC¼ÓÃÜ¹¦ÄÜ
-3¡¢Provides a test CSP. Ìá¹©Ä£ÄâµÄCSP£¨Cipher Service Provider£©
+1ã€Supports SOAP message encryption function. æä¾›SOAPæ¶ˆæ¯åŠ å¯†åŠŸèƒ½ï¼ˆåŸºäºWS-Securityï¼‰ . 
+2ã€Supports a variety of ways XMLSEC encryption. æä¾›å¤šç§æ–¹å¼çš„XMLSECåŠ å¯†åŠŸèƒ½ . 
+3ã€Provides a test CSP. æä¾›æ¨¡æ‹Ÿçš„CSPï¼ˆCipher Service Providerï¼‰ . 
 
-Java Cryptography Architecture (JCA) Reference Guide£º
+Java Cryptography Architecture (JCA) Reference Guideï¼š
 http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html
-Java Cryptography Extension (JCE) Reference Guide£º
+Java Cryptography Extension (JCE) Reference Guideï¼š
 http://docs.oracle.com/javase/1.5.0/docs/guide/security/jce/JCERefGuide.html
-Java Cryptography Architecture Standard Algorithm Name Documentation£º
+Java Cryptography Architecture Standard Algorithm Name Documentationï¼š
 http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html
 
-Ä¿Â¼ËµÃ÷£º
-jce: ÆÁ±ÎSUN¹«Ë¾¶ÔCSPÇ©ÃûÑéÖ¤µÄÇ¿ÖÆ¼ì²é£¨jce¹¤³ÌÀ´×ÔÓÚopenJdk1.6£©
-myprovider: ÓÃÓÚ²âÊÔµÄÃÜÂë·şÎñÌá¹©ÕßÊµÏÖ
+ç›®å½•è¯´æ˜ï¼š
+jce: å±è”½SUNå…¬å¸å¯¹CSPç­¾åéªŒè¯çš„å¼ºåˆ¶æ£€æŸ¥ï¼ˆjceå·¥ç¨‹æ¥è‡ªäºopenJdk1.6ï¼‰
+myprovider: ç”¨äºæµ‹è¯•çš„å¯†ç æœåŠ¡æä¾›è€…å®ç°
