@@ -3,9 +3,12 @@ xmlsec-with-self-defined-provider
 
 xmlsec with self-defined provider (using java, based on xmlsec-opensource)
 
-1、Supports SOAP message encryption function. 提供SOAP消息加密功能（基于WS-Security）  
-2、Supports a variety of ways XMLSEC encryption. 提供多种方式的XMLSEC加密功能  
-3、Provides a test CSP. 提供模拟的CSP（Cipher Service Provider）  
+1, Supports SOAP message encryption function.  
+提供SOAP消息加密功能（基于WS-Security）  
+2, Supports a variety of XMLSEC encrypted ways.  
+提供多种方式的XMLSEC加密功能  
+3, Provides a test CSP.  
+提供模拟的CSP（Cipher Service Provider）  
 
 Java Cryptography Architecture (JCA) Reference Guide：  
 http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html  
